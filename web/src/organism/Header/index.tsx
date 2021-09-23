@@ -30,13 +30,13 @@ const Header: FC = () => {
   }, [])
 
   return (
-    <>
-      <Flex p='8' align='center'>
+    <Box borderBottom='1px' borderColor='gray.200'>
+      <Flex p='4' align='center'>
         {menus.map((menu) => (
           <React.Fragment key={menu.key}>{menu.component}</React.Fragment>
         ))}
       </Flex>
-    </>
+    </Box>
   )
 }
 

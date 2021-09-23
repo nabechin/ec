@@ -3,8 +3,10 @@ import { Text, Box } from '@chakra-ui/react'
 
 const SignIn: FC = () => {
   return (
-    <Box borderBottom='1px'>
-      <Text fontSize='lg'>Sign In</Text>
+    <Box borderBottom='1px' w={100}>
+      <Text fontSize='lg' textAlign={['center']}>
+        Sign In
+      </Text>
     </Box>
   )
 }

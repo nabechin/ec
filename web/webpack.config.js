@@ -1,8 +1,7 @@
 const path = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const BundleAnalyzerPlugin =
-  require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = {
   entry: {
@@ -33,6 +32,10 @@ module.exports = {
           },
         },
       },
+      {
+        test: /\.(png|jpe?g)$/i,
+        type: 'asset/resource',
+      },
     ],
   },
   optimization: {
@@ -51,7 +54,14 @@ module.exports = {
       template: 'html/index.html',
     }),
     new webpack.HotModuleReplacementPlugin(),
-    new BundleAnalyzerPlugin({ reportFilename: './stats.html' }),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: './src/assets/img/*jpg',
+          to: './assets/img/[name].jpg',
+        },
+      ],
+    }),
   ],
   devServer: {
     hot: true,

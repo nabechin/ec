@@ -11,13 +11,27 @@ const TopPage = loadable(
 
 const history = createBrowserHistory()
 
+type Props = {
+  path: string
+}
+
+const AppRoute: FC<Props> = (props) => {
+  return (
+    <Route path={props.path}>
+      <Header></Header>
+      {props.children}
+    </Route>
+  )
+}
+
 export const App: FC = () => {
   return (
     <ChakraProvider>
       <Router history={history}>
         <Switch>
-          <Header />
-          <Route path='/'>{TopPage}</Route>
+          <AppRoute path='/'>
+            <TopPage></TopPage>
+          </AppRoute>
         </Switch>
       </Router>
     </ChakraProvider>

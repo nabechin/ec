@@ -1,12 +1,12 @@
 import React, { FC } from 'react'
 
-import { Menu, MenuButton, MenuList, MenuItem } from '@chakra-ui/react'
+import { Menu, MenuButton, MenuList, MenuItem, Box } from '@chakra-ui/react'
 import { ChevronDownIcon } from '@chakra-ui/icons'
 
 const Category: FC = () => {
   type IsOpen = { isOpen: boolean }
   return (
-    <>
+    <Box w={100}>
       <Menu>
         {(isOpen: IsOpen) => (
           <>
@@ -23,7 +23,7 @@ const Category: FC = () => {
           </>
         )}
       </Menu>
-    </>
+    </Box>
   )
 }
 
